@@ -107,7 +107,13 @@ def fetch_multiple_stocks(
     
     for ticker in tickers:
         try:
-            data = fetch_stock_data(ticker, period, start_date, end_date, interval)
+            data = fetch_stock_data(
+                ticker, 
+                period=period, 
+                start_date=start_date, 
+                end_date=end_date, 
+                interval=interval
+            )
             result[ticker] = data
         except Exception as e:
             logger.error(f"Failed to fetch data for {ticker}: {str(e)}")
